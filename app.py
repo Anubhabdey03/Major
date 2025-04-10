@@ -4,7 +4,7 @@ import tensorflow as tf
 from joblib import load
 
 # Load the trained SVM model
-model = load('svm_model.joblib')
+model = load('final_model.joblib')
 scaler = load('scaler.joblib')
 
 # Load the trained ANN model
