@@ -3,12 +3,9 @@ import numpy as np
 import tensorflow as tf
 from joblib import load
 
-# Load the trained SVM model
+# Load the trained model
 model = load('final_model.joblib')
 scaler = load('scaler.joblib')
-
-# Load the trained ANN model
-# model = tf.keras.models.load_model("Ann_intrusion_model.keras")
 
 
 st.title("Intrusion Detection System ")
@@ -38,10 +35,6 @@ if st.button("Predict"):
     input_scaled = scaler.transform(input_data)
     prediction = model.predict(input_scaled)
 
-    # if prediction[0][0] > 0.8:
-    #     st.error("⚠️ Anomaly Detected!")
-    # else:
-    #     st.success("✅ Normal Traffic")
     if prediction[0] == 1:
         st.error("⚠️ Anomaly Detected!")
     else:
